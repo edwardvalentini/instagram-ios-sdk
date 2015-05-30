@@ -407,6 +407,7 @@
 				85DBB8051B19AC07009E722F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		85DBB8061B19AC07009E722F /* Build configuration list for PBXNativeTarget "IGSDKCoreKitTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +416,7 @@
 				85DBB8081B19AC07009E722F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
