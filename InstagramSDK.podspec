@@ -1,7 +1,7 @@
 # CocoaPods podspec for Instagram-iOS-SDK
 
 Pod::Spec.new do |s|
-  s.name             = "Instagram-iOS-SDK"
+  s.name             = "InstagramSDK"
   s.version          = "0.0.1"
   s.summary          = "Instagram iOS SDK is a framework built on top of Instagram's public API."
   s.homepage         = "https://github.com/jaunesarmiento/instagram-ios-sdk"
@@ -23,6 +23,6 @@ Pod::Spec.new do |s|
     spec.source_files   = "IGSDKLoginKit/IGSDKLoginKit/**/*.{h,m}"
     spec.public_header_files = "IGSDKKLoginKit/IGSDKLoginKit/*.{h}"
     spec.header_dir = "IGSDKLoginKit"
-    spec.dependency 'Instagram-iOS-SDK/CoreKit'
+    spec.dependency 'InstagramSDK/CoreKit'
   end
 end
