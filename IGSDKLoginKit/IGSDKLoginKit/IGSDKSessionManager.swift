@@ -25,7 +25,7 @@ public class IGSDKSessionManager {
     /**
         Builds and returns the authorization URL.
     
-        :returns: An `NSURL` used to request an access token from the Instagram API.
+        - returns: An `NSURL` used to request an access token from the Instagram API.
     */
     
     private func authorizationURL() -> NSURL {
@@ -48,7 +48,7 @@ public class IGSDKSessionManager {
     
         The application can request extended permissions by setting the needed scopes in the calling application's `Info.plist`. Read https://instagram.com/developer/authentication/#scope for more information about Instagram scopes.
     
-        :param: completionHandler The closure executed when this method is completed.
+        - parameter completionHandler: The closure executed when this method is completed.
     */
     
     public func loginWithCompletionHandler(completionHandler: IGSDKLoginResponseHandler) {
@@ -60,9 +60,9 @@ public class IGSDKSessionManager {
     /**
         Call this method from `application(_:openURL:sourceApplication:annotation:)` method of your application's `AppDelegate`. This should be called to ensure proper handling of the authentication process (e.g. when `loginWithCompletionHandler(_:)` is called).
     
-        :param: url The URL as passed to `application(_:openURL:sourceApplication:annotation:)`.
-        :param: sourceApplication The source application as passed to `application(_:openURL:sourceApplication:annotation:)`.
-        :returns: `true` if the URL is intended for `IGSDKLoginKit`, `false` if not.
+        - parameter url: The URL as passed to `application(_:openURL:sourceApplication:annotation:)`.
+        - parameter sourceApplication: The source application as passed to `application(_:openURL:sourceApplication:annotation:)`.
+        - returns: `true` if the URL is intended for `IGSDKLoginKit`, `false` if not.
     */
     
     public func handleOpenURL(url: NSURL, sourceApplication: String?) -> Bool {

@@ -23,8 +23,8 @@ public class IGSession: NSObject {
     /**
         Call this method when a new session should be set. This must be called before any calls to `activeSession()` is made.
     
-        :param: accessToken The access token from Instagram authorization API.
-        :returns: The active Instagram session. Returns `nil` when the user is not authenticated.
+        - parameter accessToken: The access token from Instagram authorization API.
+        - returns: The active Instagram session. Returns `nil` when the user is not authenticated.
     */
     internal static func session(accessToken: String) -> IGSession {
         _activeSession = IGSession(accessToken: accessToken)
@@ -35,7 +35,7 @@ public class IGSession: NSObject {
     /**
         A convenience method to get the active Instagram session without setting the access token.
     
-        :returns: The active Instagram session. Returns `nil` when the user is not authenticated.
+        - returns: The active Instagram session. Returns `nil` when the user is not authenticated.
     */
     
     public static func activeSession() -> IGSession? {

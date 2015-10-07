@@ -15,12 +15,12 @@ extension NSURL {
         var dictionary = [NSObject: AnyObject]()
 
         if let fragment = self.fragment {
-            let params = split(fragment) {
+            let params = fragment.characters.split {
                 $0 == "&"
-            }.map { (entry) in
-                return split(entry) {
+            }.map { String($0) }.map { (entry) in
+                return entry.characters.split {
                     $0 == "="
-                }
+                }.map { String($0) }
             }.map { (entry) in
                 return [entry[0]: entry[1]]
             }

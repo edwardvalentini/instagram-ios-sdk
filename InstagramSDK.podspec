@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "InstagramSDK"
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.summary          = "Instagram iOS SDK is a framework built on top of Instagram's public API."
   s.homepage         = "https://github.com/jaunesarmiento/instagram-ios-sdk"
   s.license          = 'MIT'
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   end
   s.subspec 'LoginKit' do |spec|
     spec.source_files   = "IGSDKLoginKit/IGSDKLoginKit/**/*.{h,m}"
-    spec.public_header_files = "IGSDKKLoginKit/IGSDKLoginKit/*.{h}"
+    spec.public_header_files = "IGSDKLoginKit/IGSDKLoginKit/*.{h}"
     spec.header_dir = "IGSDKLoginKit"
     spec.dependency 'InstagramSDK/CoreKit'
   end

@@ -25,7 +25,7 @@ public let IGSDKRedirectURI = "ig\(IGSDKClientId)://authorize"
 public var IGSDKScope: String? {
     get {
         if let scope = AppMainBundle[IGSDKScopeKey] as? [String] {
-            return "+".join((scope).map({ "\($0)" }))
+            return (scope).map({ "\($0)" }).joinWithSeparator("+")
         } else {
             return nil
         }
