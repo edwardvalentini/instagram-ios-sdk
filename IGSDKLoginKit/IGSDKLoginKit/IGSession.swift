@@ -10,14 +10,14 @@ import Foundation
 
 private var _activeSession: IGSession!
 
-public class IGSession: NSObject {
+open class IGSession: NSObject {
     
-    public var accessToken: String
-    public var lastUpdated: NSDate
+    open var accessToken: String
+    open var lastUpdated: Date
     
     public init(accessToken: String) {
         self.accessToken = accessToken
-        self.lastUpdated = NSDate()
+        self.lastUpdated = Date()
     }
     
     /**
@@ -26,7 +26,7 @@ public class IGSession: NSObject {
         - parameter accessToken: The access token from Instagram authorization API.
         - returns: The active Instagram session. Returns `nil` when the user is not authenticated.
     */
-    internal static func session(accessToken: String) -> IGSession {
+    internal static func session(_ accessToken: String) -> IGSession {
         _activeSession = IGSession(accessToken: accessToken)
         return _activeSession
     }
@@ -38,7 +38,7 @@ public class IGSession: NSObject {
         - returns: The active Instagram session. Returns `nil` when the user is not authenticated.
     */
     
-    public static func activeSession() -> IGSession? {
+    open static func activeSession() -> IGSession? {
         return _activeSession
     }
     

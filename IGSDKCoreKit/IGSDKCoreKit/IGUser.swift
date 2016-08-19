@@ -8,16 +8,16 @@
 
 import Foundation
 
-public class IGUser {
+open class IGUser {
     
-    public var id: String!
-    public var username: String!
-    public var fullName: String!
-    public var profilePicture: String!
-    public var bio: String!
-    public var website: String!
-    public var mediaCount: Int = 0
-    public var followsCount: Int = 0
-    public var followedByCount: Int = 0
+    open var id: String!
+    open var username: String!
+    open var fullName: String!
+    open var profilePicture: String!
+    open var bio: String!
+    open var website: String!
+    open var mediaCount: Int = 0
+    open var followsCount: Int = 0
+    open var followedByCount: Int = 0
     
 }

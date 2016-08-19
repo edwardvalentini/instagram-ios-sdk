@@ -9,15 +9,15 @@
 import Foundation
 import IGSDKCoreKit
 
-public typealias IGSDKLoginResponseHandler = (session: IGSession?, error: NSError?) -> Void
+public typealias IGSDKLoginResponseHandler = (_ session: IGSession?, _ error: NSError?) -> Void
 
-public class IGSDKSessionManager {
+open class IGSDKSessionManager {
     
     
     // MARK: Private Variables
     
     // The closure executed when `loginWithCompletionHandler(_:)` is completed
-    private var loginHandler: IGSDKLoginResponseHandler?
+    fileprivate var loginHandler: IGSDKLoginResponseHandler?
     
     
     // MARK: - Private Methods
@@ -28,14 +28,14 @@ public class IGSDKSessionManager {
         - returns: An `NSURL` used to request an access token from the Instagram API.
     */
     
-    private func authorizationURL() -> NSURL {
+    fileprivate func authorizationURL() -> URL {
         var urlString = "\(IGSDKAuthorizationURL)?client_id=\(IGSDKClientId)&redirect_uri=\(IGSDKRedirectURI)&response_type=token"
         
         if let scope = IGSDKScope {
             urlString += "&scope=\(scope)"
         }
         
-        return NSURL(string: urlString)!
+        return URL(string: urlString)!
     }
     
     
@@ -51,9 +51,9 @@ public class IGSDKSessionManager {
         - parameter completionHandler: The closure executed when this method is completed.
     */
     
-    public func loginWithCompletionHandler(completionHandler: IGSDKLoginResponseHandler) {
+    open func loginWithCompletionHandler(_ completionHandler: IGSDKLoginResponseHandler) {
         loginHandler = completionHandler
-        UIApplication.sharedApplication().openURL(authorizationURL())
+        UIApplication.shared.openURL(authorizationURL())
     }
     
     
@@ -65,8 +65,8 @@ public class IGSDKSessionManager {
         - returns: `true` if the URL is intended for `IGSDKLoginKit`, `false` if not.
     */
     
-    public func handleOpenURL(url: NSURL, sourceApplication: String?) -> Bool {
-        let redirectURL = NSURL(string: IGSDKRedirectURI)!
+    open func handleOpenURL(_ url: URL, sourceApplication: String?) -> Bool {
+        let redirectURL = URL(string: IGSDKRedirectURI)!
         var session: IGSession?
         
         // When we won't be handling this URL, return `false`. There is no need to call the login handler here since this is not an auth flow URL.
@@ -82,10 +82,10 @@ public class IGSDKSessionManager {
         
         if let loginHandler = loginHandler {
             if let session = session {
-                loginHandler(session: session, error: nil)
+                loginHandler(session, nil)
             } else {
                 // Return an error if we didn't get an access token and a valid session
-                loginHandler(session: session, error: nil) // TODO: Pass error message here
+                loginHandler(session, nil) // TODO: Pass error message here
             }
         }
         

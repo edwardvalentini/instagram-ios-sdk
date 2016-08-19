@@ -8,7 +8,7 @@
 
 import Foundation
 
-private let AppMainBundle = NSBundle.mainBundle().infoDictionary!
+private let AppMainBundle = Bundle.main.infoDictionary!
 
 public let IGSDKBaseURL = "https://instagram.com"
 public let IGSDKAuthorizationURL = "https://instagram.com/oauth/authorize/"
@@ -25,7 +25,7 @@ public let IGSDKRedirectURI = "ig\(IGSDKClientId)://authorize"
 public var IGSDKScope: String? {
     get {
         if let scope = AppMainBundle[IGSDKScopeKey] as? [String] {
-            return (scope).map({ "\($0)" }).joinWithSeparator("+")
+            return (scope).map({ "\($0)" }).joined(separator: "+")
         } else {
             return nil
         }
@@ -35,5 +35,5 @@ public var IGSDKScope: String? {
 public let IGSDKMissingAccessTokenCode = 10001
 
 public let IGSDKErrorMessages: [NSObject: (NSString, NSString)] = [
-    IGSDKMissingAccessTokenCode: ("An access token could not be found.", "The Instagram API probably did not finish or did not return an access token.")
+    IGSDKMissingAccessTokenCode as NSObject: ("An access token could not be found.", "The Instagram API probably did not finish or did not return an access token.")
 ]

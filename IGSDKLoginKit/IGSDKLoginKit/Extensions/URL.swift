@@ -8,24 +8,28 @@
 
 import Foundation
 
-extension NSURL {
+extension URL {
     
-    internal var fragmentValues: [NSObject: AnyObject] {
+    internal var fragmentValues: [AnyHashable: Any] {
         
-        var dictionary = [NSObject: AnyObject]()
+        var dictionary = [AnyHashable: Any]()
 
         if let fragment = self.fragment {
             let params = fragment.characters.split {
                 $0 == "&"
-            }.map { String($0) }.map { (entry) in
+            }
+                
+            let params2 = params.map { String($0) }.map { (entry) in
                 return entry.characters.split {
                     $0 == "="
                 }.map { String($0) }
-            }.map { (entry) in
+            }
+                
+            let params3 = params2.map { (entry) in
                 return [entry[0]: entry[1]]
             }
 
-            for value in params {
+            for value in params3 {
                 for key in value.keys {
                     dictionary[key] = value[key]
                 }
