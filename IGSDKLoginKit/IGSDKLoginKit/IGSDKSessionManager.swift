@@ -17,7 +17,7 @@ open class IGSDKSessionManager {
     // MARK: Private Variables
     
     // The closure executed when `loginWithCompletionHandler(_:)` is completed
-    fileprivate var loginHandler: IGSDKLoginResponseHandler?
+    private var loginHandler: IGSDKLoginResponseHandler?
     
     
     // MARK: - Private Methods
@@ -28,7 +28,7 @@ open class IGSDKSessionManager {
         - returns: An `NSURL` used to request an access token from the Instagram API.
     */
     
-    fileprivate func authorizationURL() -> URL {
+    private func authorizationURL() -> URL {
         var urlString = "\(IGSDKAuthorizationURL)?client_id=\(IGSDKClientId)&redirect_uri=\(IGSDKRedirectURI)&response_type=token"
         
         if let scope = IGSDKScope {
